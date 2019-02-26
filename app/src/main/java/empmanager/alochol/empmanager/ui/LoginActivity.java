@@ -92,8 +92,8 @@ public class LoginActivity extends BaseActivity {
                 cbRememberPwd.setChecked(true);
 
                 if (managerToken.isAutoLogin()) {
-                    handleLogin(manager.getMgr_name(), manager.getMgr_password());
                     cbAutoLogin.setChecked(true);
+                    handleLogin(manager.getMgr_name(), manager.getMgr_password());
                 } else
                     cbAutoLogin.setChecked(false);
             } else {
