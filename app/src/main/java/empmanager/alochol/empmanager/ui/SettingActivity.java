@@ -12,6 +12,7 @@ import butterknife.OnClick;
 import empmanager.alochol.empmanager.R;
 import empmanager.alochol.empmanager.base.BaseActivity;
 import empmanager.alochol.empmanager.base.BaseAppliction;
+import empmanager.alochol.empmanager.common.constant.Constants;
 
 /**
  * 设置界面
@@ -49,10 +50,10 @@ public class SettingActivity extends BaseActivity {
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-        if (BaseAppliction.sUser.getRole_id() == 100) {
-            // 是主管理员
-            updateIndo.setEnabled(false);
-        }
+//        if (BaseAppliction.sUser.getRole_id() == Constants.SYSTEM_MGR) {
+//            // 是主管理员
+//            updateIndo.setEnabled(false);
+//        }
     }
 
     @Override

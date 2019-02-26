@@ -23,6 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import empmanager.alochol.empmanager.R;
 import empmanager.alochol.empmanager.base.BaseActivity;
+import empmanager.alochol.empmanager.base.BaseAppliction;
 import empmanager.alochol.empmanager.common.constant.Constants;
 import empmanager.alochol.empmanager.model.Manager;
 import empmanager.alochol.empmanager.model.ServiceResult;
@@ -207,6 +208,16 @@ public class UserEditActivity extends BaseActivity {
             case 1:
                 rbFamale.setChecked(true);
                 break;
+        }
+
+        if (manager.getRole_id() == Constants.SYSTEM_MGR) {
+            // 是主管理员 不可编辑
+            tvUsername.setEnabled(false);
+            tvPwd.setEnabled(false);
+            tvAge.setEnabled(false);
+            rbMale.setEnabled(false);
+            rbFamale.setEnabled(false);
+            btnAdd.setEnabled(false);
         }
     }
 
