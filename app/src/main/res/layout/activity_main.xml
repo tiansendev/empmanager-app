@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.HomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:background="#7D62B3E3">
+            <TextView
+                android:id="@+id/tv_name"
+                android:text="公司"
+                android:textColor="#fff"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:paddingLeft="15dp"
+                android:singleLine="true"
+                android:lines="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:gravity="center"
+                android:text="首页"
+                android:textSize="23sp"/>
+            <TextView
+                android:id="@+id/tv_setting"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
+                android:text="设置"
+                android:gravity="center_vertical|right"
+                android:paddingRight="15dp"
+                android:textColor="#ffffff"
+                android:textSize="16sp"/>
+        </LinearLayout>
+        <ImageView
+            android:visibility="invisible"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="员工管理系统"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginBottom="30dp">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/DIMEN_40DP"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <Button
+                    android:id="@+id/btn_add_emp"
+                    android:text="添加员工"
+                    android:textColor="@drawable/selector_tab_text_color"
+                    android:textSize="@dimen/font_size_large"
+                    android:background="@drawable/btn_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <Button
+                    android:id="@+id/btn_mgr_emp"
+                    android:layout_marginTop="@dimen/DIMEN_20DP"
+                    android:text="管理员工"
+                    android:textColor="@drawable/selector_tab_text_color"
+                    android:textSize="@dimen/font_size_large"
+                    android:background="@drawable/btn_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <Button
+                    android:id="@+id/btn_add_user"
+                    android:layout_marginTop="@dimen/DIMEN_20DP"
+                    android:text="添加用户"
+                    android:textColor="@drawable/selector_tab_text_color"
+                    android:textSize="@dimen/font_size_large"
+                    android:background="@drawable/btn_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <Button
+                    android:id="@+id/btn_mgr_user"
+                    android:layout_marginTop="@dimen/DIMEN_20DP"
+                    android:text="管理用户"
+                    android:textColor="@drawable/selector_tab_text_color"
+                    android:textSize="@dimen/font_size_large"
+                    android:background="@drawable/btn_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</FrameLayout>

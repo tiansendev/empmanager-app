@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/activity_login_ll"
+    android:background="@color/setting_bg"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/include_title" />
+
+    <LinearLayout
+        android:layout_gravity="clip_vertical"
+        android:orientation="vertical"
+        android:id="@+id/login_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:layout_centerInParent="true">
+        <LinearLayout android:orientation="horizontal"
+            android:background="@drawable/login_input_shape"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:layout_marginTop="20.0dip">
+            <ImageView android:layout_gravity="center_vertical"
+                android:background="@android:color/transparent"
+                android:layout_width="32.0dip"
+                android:layout_height="32.0dip"
+                android:layout_marginRight="10.0dip"
+                android:src="@drawable/account"
+                android:contentDescription="@null" />
+            <AutoCompleteTextView android:textSize="@dimen/btn"
+                android:textColor="@color/light_black"
+                android:textColorHint="@color/login_hint"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/tv_username"
+                android:background="@null"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入用户名"
+                android:maxLength="16"
+                android:inputType="text" />
+        </LinearLayout>
+        <!--<LinearLayout android:orientation="horizontal"-->
+            <!--android:background="@drawable/login_input_shape"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="45.0dip"-->
+            <!--android:layout_marginTop="20.0dip">-->
+            <!--<ImageView android:layout_gravity="center_vertical"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:layout_width="32.0dip"-->
+                <!--android:layout_height="32.0dip"-->
+                <!--android:layout_marginRight="10.0dip"-->
+                <!--android:src="@drawable/pwd"-->
+                <!--android:contentDescription="@null" />-->
+            <!--<AutoCompleteTextView android:textSize="@dimen/btn"-->
+                <!--android:textColor="@color/light_black"-->
+                <!--android:textColorHint="@color/login_hint"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:id="@+id/tv_pwd"-->
+                <!--android:background="@null"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:hint="请输入用户密码"-->
+                <!--android:maxLength="16"-->
+                <!--android:inputType="textPassword" />-->
+        <!--</LinearLayout>-->
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:layout_marginTop="20.0dip">
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/middle_blue"
+                android:textStyle="bold"
+                android:text="年龄:"/>
+            <EditText
+                android:id="@+id/et_min_age"
+                android:hint="最小年龄"
+                android:textSize="14sp"
+                android:paddingLeft="@dimen/DIMEN_10DP"
+                android:layout_marginLeft="@dimen/DIMEN_10DP"
+                android:background="@drawable/login_input_shape"
+                android:layout_gravity="bottom"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:layout_height="match_parent" />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/DIMEN_5DP"
+                android:paddingRight="@dimen/DIMEN_5DP"
+                android:text="~"/>
+            <EditText
+                android:id="@+id/et_max_age"
+                android:textSize="14sp"
+                android:background="@drawable/login_input_shape"
+                android:paddingLeft="@dimen/DIMEN_10DP"
+                android:hint="最大年龄"
+                android:layout_gravity="bottom"
+                android:inputType="number"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+            <!--<ImageView android:layout_gravity="center_vertical"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:layout_width="32.0dip"-->
+                <!--android:layout_height="32.0dip"-->
+                <!--android:layout_marginRight="10.0dip"-->
+                <!--android:src="@drawable/pwd"-->
+                <!--android:contentDescription="@null" />-->
+            <!--<EditText android:textSize="@dimen/btn"-->
+                <!--android:textColor="@color/light_black"-->
+                <!--android:textColorHint="@color/login_hint"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:id="@+id/tv_age"-->
+                <!--android:background="@null"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:hint="@string/register_age_hint"-->
+                <!--android:maxLength="16"-->
+                <!--android:inputType="number" />-->
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:layout_marginTop="20.0dip">
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/middle_blue"
+                android:textStyle="bold"
+                android:text="性  别:"/>
+            <RadioGroup
+                android:layout_marginLeft="@dimen/DIMEN_15DP"
+                android:layout_gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/rb_all"
+                    android:checked="true"
+                    android:text="所有"
+                    android:textColor="@color/light_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:layout_marginLeft="@dimen/DIMEN_10DP"
+                    android:id="@+id/rb_male"
+                    android:text="男"
+                    android:textColor="@color/light_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_famale"
+                    android:layout_marginLeft="@dimen/DIMEN_10DP"
+                    android:text="女"
+                    android:textColor="@color/light_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+            <!--<ImageView android:layout_gravity="center_vertical"-->
+            <!--android:background="@android:color/transparent"-->
+            <!--android:layout_width="32.0dip"-->
+            <!--android:layout_height="32.0dip"-->
+            <!--android:layout_marginRight="10.0dip"-->
+            <!--android:src="@drawable/pwd"-->
+            <!--android:contentDescription="@null" />-->
+            <!--<EditText android:textSize="@dimen/btn"-->
+            <!--android:textColor="@color/light_black"-->
+            <!--android:textColorHint="@color/login_hint"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:id="@+id/age"-->
+            <!--android:background="@null"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint="@string/register_age_hint"-->
+            <!--android:maxLength="16"-->
+            <!--android:inputType="textPassword" />-->
+        </LinearLayout>
+        <Button android:textSize="@dimen/btn"
+            android:textColor="@color/white"
+            android:id="@+id/btn_query"
+            android:background="@drawable/login_btn_selector"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20.0dip"
+            android:text="查询" />
+
+    </LinearLayout>
+</RelativeLayout>

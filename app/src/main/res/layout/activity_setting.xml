@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/setting_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/include_title" />
+    <!--<include layout="@layout/layout_prompt" />-->
+    <Button
+        android:layout_marginLeft="@dimen/DIMEN_20DP"
+        android:layout_marginRight="@dimen/DIMEN_20DP"
+        android:textSize="@dimen/btn"
+        android:textColor="@color/white"
+        android:id="@+id/update_indo"
+        android:background="@drawable/login_btn_selector"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20.0dip"
+        android:text="修改个人信息" />
+    <Button
+        android:layout_marginTop="@dimen/DIMEN_20DP"
+        android:textSize="@dimen/btn"
+        android:textColor="@color/white"
+        android:id="@+id/exit"
+        android:background="@drawable/login_btn_selector"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="@dimen/DIMEN_20DP"
+        android:text="退出程序" />
+</LinearLayout>

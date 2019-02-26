@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/activity_login_ll"
+    android:background="@color/setting_bg"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/include_title" />
+
+    <LinearLayout
+        android:layout_gravity="clip_vertical"
+        android:orientation="vertical"
+        android:id="@+id/login_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20.0dip"
+        android:layout_marginRight="20.0dip"
+        android:layout_centerInParent="true">
+        <LinearLayout android:orientation="horizontal"
+            android:background="@drawable/login_input_shape"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:layout_marginTop="20.0dip">
+            <ImageView android:layout_gravity="center_vertical"
+                android:background="@android:color/transparent"
+                android:layout_width="32.0dip"
+                android:layout_height="32.0dip"
+                android:layout_marginRight="10.0dip"
+                android:src="@drawable/account"
+                android:contentDescription="@null" />
+            <AutoCompleteTextView android:textSize="@dimen/btn"
+                android:textColor="@color/light_black"
+                android:textColorHint="@color/login_hint"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/tv_empname"
+                android:background="@null"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入员工名"
+                android:maxLength="16"
+                android:inputType="text" />
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:orientation="horizontal"
+            android:background="@drawable/login_input_shape"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:layout_marginTop="20.0dip">
+            <ImageView android:layout_gravity="center_vertical"
+                android:background="@android:color/transparent"
+                android:layout_width="32.0dip"
+                android:layout_height="32.0dip"
+                android:layout_marginRight="10.0dip"
+                android:src="@drawable/account"
+                android:contentDescription="@null" />
+            <AutoCompleteTextView android:textSize="@dimen/btn"
+                android:textColor="@color/light_black"
+                android:textColorHint="@color/login_hint"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/empcode"
+                android:background="@null"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入员工编号"
+                android:maxLength="16"
+                android:inputType="text" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="@drawable/login_input_shape"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:layout_marginTop="20.0dip">
+            <ImageView android:layout_gravity="center_vertical"
+                android:background="@android:color/transparent"
+                android:layout_width="32.0dip"
+                android:layout_height="32.0dip"
+                android:layout_marginRight="10.0dip"
+                android:src="@drawable/pwd"
+                android:contentDescription="@null" />
+            <EditText android:textSize="@dimen/btn"
+                android:textColor="@color/light_black"
+                android:textColorHint="@color/login_hint"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/tv_age"
+                android:background="@null"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_age_hint"
+                android:maxLength="16"
+                android:inputType="number" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:layout_marginTop="20.0dip">
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/middle_blue"
+                android:textStyle="bold"
+                android:text="性   别:"/>
+            <RadioGroup
+                android:layout_marginLeft="@dimen/DIMEN_15DP"
+                android:layout_gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/rb_male"
+                    android:text="男"
+                    android:checked="true"
+                    android:textColor="@color/light_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/rb_famale"
+                    android:layout_marginLeft="@dimen/DIMEN_10DP"
+                    android:text="女"
+                    android:textColor="@color/light_blue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RadioGroup>
+            <!--<ImageView android:layout_gravity="center_vertical"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:layout_width="32.0dip"-->
+                <!--android:layout_height="32.0dip"-->
+                <!--android:layout_marginRight="10.0dip"-->
+                <!--android:src="@drawable/pwd"-->
+                <!--android:contentDescription="@null" />-->
+            <!--<EditText android:textSize="@dimen/btn"-->
+                <!--android:textColor="@color/light_black"-->
+                <!--android:textColorHint="@color/login_hint"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:id="@+id/age"-->
+                <!--android:background="@null"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:hint="@string/register_age_hint"-->
+                <!--android:maxLength="16"-->
+                <!--android:inputType="textPassword" />-->
+        </LinearLayout>
+        <Button android:textSize="@dimen/btn"
+            android:textColor="@color/white"
+            android:id="@+id/login_button"
+            android:background="@drawable/login_btn_selector"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20.0dip"
+            android:text="添 加" />
+        <!--<LinearLayout-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<CheckBox android:textSize="@dimen/hint"-->
+                <!--android:textColor="@color/light_blue"-->
+                <!--android:id="@+id/cb_remember_pwd"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10.0dip"-->
+                <!--android:text="@string/remember_pwd" />-->
+            <!--<CheckBox-->
+                <!--android:textSize="@dimen/hint"-->
+                <!--android:layout_marginLeft="@dimen/DIMEN_10DP"-->
+                <!--android:textColor="@color/light_blue"-->
+                <!--android:id="@+id/cb_auto_login"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10.0dip"-->
+                <!--android:text="@string/auto_login" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_register"-->
+                <!--android:layout_marginTop="@dimen/DIMEN_10DP"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:gravity="right"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColor="@color/blue"-->
+                <!--android:text="新用户注册"/>-->
+        <!--</LinearLayout>-->
+    </LinearLayout>
+</RelativeLayout>
