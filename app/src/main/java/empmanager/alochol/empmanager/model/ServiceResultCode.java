@@ -2,7 +2,7 @@ package empmanager.alochol.empmanager.model;
 
 
 /**
- * 错误码
+ * 全局状态码
  */
 public enum ServiceResultCode {
 

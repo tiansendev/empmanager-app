@@ -29,6 +29,10 @@ import empmanager.alochol.empmanager.util.GsonUtil;
 import empmanager.alochol.empmanager.util.Tools;
 import okhttp3.Call;
 
+/**
+ * 列表界面适配器
+ * @param <T> 泛型： Manager 或 Employee
+ */
 public class FilterListAdapter<T> extends BaseAdapter {
 
     private List<T> itemBeans;
@@ -63,7 +67,7 @@ public class FilterListAdapter<T> extends BaseAdapter {
         }
 
         if (isUser(itemBeans.get(position))) {
-            // 位置
+            // 是用户 显示用户信息
             Manager manager = (Manager) t;
             holder.tvName.setText(manager.getMgr_name());
             Integer gender = manager.getGender();
@@ -74,7 +78,9 @@ public class FilterListAdapter<T> extends BaseAdapter {
                     holder.tvGender.setText("女");
             }
             holder.tvAge.setText(String.valueOf(manager.getMgr_age()));
+
         } else if (isEmp(itemBeans.get(position))) {
+            // 是员工 显示员工信息
             Employee employee = (Employee) t;
             holder.tvName.setText(employee.getEmp_name());
             Integer emp_gender = employee.getEmp_gender();
@@ -86,7 +92,7 @@ public class FilterListAdapter<T> extends BaseAdapter {
             }
             holder.tvAge.setText(String.valueOf(employee.getEmp_age()));
         }
-
+        // 注册点击事件
         setClickListener(contentView, position);
         return contentView;
     }
@@ -114,17 +120,25 @@ public class FilterListAdapter<T> extends BaseAdapter {
         }
     }
 
+    /**
+     * 注册点击事件
+     * @param contentView
+     * @param position
+     */
     private void setClickListener(final View contentView, final int position) {
+        // 点击进入编辑界面
         contentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
+                // 是员工 则进入员工编辑界面
                 if (isEmp(itemBeans.get(position))) {
                     intent.setClass(mContext, EmployeeEditActivity.class);
                     if (itemBeans.get(position) != null) {
                         intent.putExtra(EmployeeEditActivity.EMP_ID, ((Employee) itemBeans.get(position)).getId());
                         mContext.startActivity(intent);
                     }
+                // 是用户 则进入用户界面
                 } else if (isUser(itemBeans.get(position))) {
                     intent.setClass(mContext, UserEditActivity.class);
                     if (itemBeans.get(position) != null) {
@@ -142,15 +156,21 @@ public class FilterListAdapter<T> extends BaseAdapter {
                 ((BaseActivity)mContext).showDialog("警告", "确定要删除该条记录？", new BaseActivity.OnClickEvent() {
                     @Override
                     public void onPositive(View v) {
+                        String delUrl = "";
                         OtherRequestBuilder delete = OkHttpUtils.delete();
                         if (isEmp(itemBeans.get(position))) {
                             // 是员工
-                            delete.url(Constants.URL_EMPLOYEE + "/" + ((Employee) itemBeans.get(position)).getId());
+                            delUrl = Constants.URL_EMPLOYEE + "/" + ((Employee) itemBeans.get(position)).getId();
                         } else if (isUser(itemBeans.get(position))) {
                             // 是用户
                             delete.url(Constants.URL_MANAGER + "/" + ((Manager) itemBeans.get(position)).getId());
                         }
-                        delete.build()
+
+                        ((BaseActivity)mContext).showLoading();
+                        OkHttpUtils
+                                .delete()
+                                .url(delUrl)
+                                .build()
                                 .execute(new StringCallback() {
                                     @Override
                                     public void onError(Call call, Exception e, int id) {
@@ -167,6 +187,7 @@ public class FilterListAdapter<T> extends BaseAdapter {
                                             Tools.showInfoShort(mContext, "删除失败: " + serviceResult.getMessage());
                                             return;
                                         }
+                                        Tools.showInfoShort(mContext, "删除成功");
                                         // 刷新界面
                                         itemBeans.remove(position);
                                         notifyDataSetChanged();

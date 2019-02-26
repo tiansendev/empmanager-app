@@ -33,7 +33,9 @@ import okhttp3.Call;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
-
+/**
+ * 用户编辑界面
+ */
 public class UserEditActivity extends BaseActivity {
     public static final String MANANGER_ID = "MANANGER_ID";
     @BindView(R.id.imgTitleLeft)
@@ -98,6 +100,13 @@ public class UserEditActivity extends BaseActivity {
         }
     }
 
+    /**
+     * 提交编辑后的信息
+     * @param username
+     * @param pwd
+     * @param age
+     * @param gender
+     */
     private void handleEditManager(String username, String pwd, String age, int gender) {
         Manager manager = new Manager(username, pwd);
         manager.setId(mManagerId);
@@ -149,11 +158,15 @@ public class UserEditActivity extends BaseActivity {
         }
     }
 
-    private void obtainManagerInfoById(String ManagerId) {
+    /**
+     * 根据id获取用户信息
+     * @param managerId
+     */
+    private void obtainManagerInfoById(String managerId) {
         showLoading();
         OkHttpUtils
                 .get()
-                .url(Constants.URL_MANAGER + "/" + ManagerId)
+                .url(Constants.URL_MANAGER + "/" + managerId)
                 .build()
                 .execute(new StringCallback() {
 
@@ -178,6 +191,10 @@ public class UserEditActivity extends BaseActivity {
                 });
     }
 
+    /**
+     * 更新ui
+     * @param manager
+     */
     private void updateUi(Manager manager) {
         tvUsername.setText(manager.getMgr_name());
         tvPwd.setText(manager.getMgr_password());

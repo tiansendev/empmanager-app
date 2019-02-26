@@ -31,6 +31,9 @@ import empmanager.alochol.empmanager.util.Tools;
 import okhttp3.Call;
 import okhttp3.MediaType;
 
+/**
+ * 用户注册界面
+ */
 public class RegisterActivity extends BaseActivity {
     @BindView(R.id.imgTitleLeft)
     ImageView imgTitleLeft;

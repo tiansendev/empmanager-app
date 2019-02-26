@@ -2,6 +2,10 @@ package empmanager.alochol.empmanager.model;
 
 import java.io.Serializable;
 
+/**
+ * http返回实体包装类
+ * @param <T>
+ */
 public class ServiceResult<T>  implements Serializable{
     private String code;
     private String message;

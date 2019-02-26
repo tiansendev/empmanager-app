@@ -8,6 +8,9 @@ import android.preference.PreferenceManager;
 import empmanager.alochol.empmanager.model.ManagerToken;
 import empmanager.alochol.empmanager.util.GsonUtil;
 
+/**
+ * SharedPreference工具类
+ */
 public class SharedPreferenceHelper {
 	SharedPreferences sp;
 	SharedPreferences.Editor editor;

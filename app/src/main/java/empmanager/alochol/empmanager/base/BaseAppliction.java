@@ -24,27 +24,33 @@ import empmanager.alochol.empmanager.model.ManagerToken;
 import empmanager.alochol.empmanager.ui.LoginActivity;
 import okhttp3.OkHttpClient;
 
+/**
+ * 自定义Application
+ */
 public class BaseAppliction extends Application {
     private static BaseAppliction instance;
+    /**
+     * 用户信息
+     */
     public static Manager sUser;
+
+    /**
+     * token拦截器
+     */
     public static TokenInterceptor sIntercepter;
 
-    public static List<String> sSearchList;
+    /**
+     * activity栈
+     */
     public static ArrayList<Activity> sActivityStack;
 
     public static Context getInstance() {
         return instance;
     }
 
-    public static void exitApp() {
-        for (Activity activity : sActivityStack) {
-            if (activity != null && !activity.isDestroyed())
-                activity.finish();
-        }
-        SharedPreferenceHelper.getInstance(getInstance()).putUser(new ManagerToken());
-        System.exit(0);
-    }
-
+    /**
+     * 退出应用 并且清空xml中用户信息
+     */
     public static void exitAppAndClearLoginInfo() {
         for (Activity activity : sActivityStack) {
             if (activity != null && !activity.isDestroyed())
@@ -54,23 +60,8 @@ public class BaseAppliction extends Application {
         System.exit(0);
     }
 
-//    public static void exitApp() {
-//        for (Activity activity : sActivityStack) {
-//            if (activity != null && !activity.isDestroyed())
-//                activity.finish();
-//        }
-//        System.exit(0);
-//    }
-
-    static Handler handler = new Handler();
-    public static void runInMainThread(Runnable runnable) {
-        if (runnable != null)
-            handler.post(runnable);
-    }
-
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         super.onCreate();
         sActivityStack = new ArrayList<>();
         instance = this;
@@ -78,6 +69,9 @@ public class BaseAppliction extends Application {
         initOkhttp();
     }
 
+    /**
+     * 初始化Logger
+     */
     private void initLogger() {
         PrettyFormatStrategy strategy = PrettyFormatStrategy.newBuilder()
                 .showThreadInfo(false)
@@ -89,19 +83,24 @@ public class BaseAppliction extends Application {
         Logger.addLogAdapter(new AndroidLogAdapter(strategy));
     }
 
-
+    /**
+     * 初始化OKHTTP
+     */
     public static void initOkhttp() {
         sIntercepter = new TokenInterceptor();
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(sIntercepter)
                 .addInterceptor(new LoggingInterceptor())
-                .connectTimeout(60L, TimeUnit.SECONDS)
-                .readTimeout(60L, TimeUnit.SECONDS)
+                .connectTimeout(10L, TimeUnit.SECONDS)
+                .readTimeout(10L, TimeUnit.SECONDS)
                 .build();
 
         OkHttpUtils.initClient(okHttpClient);
     }
 
+    /**
+     * 跳到登录页面
+     */
     public static void jumpToLoginPage() {
         sUser = null;
         Intent intent = new Intent(getInstance(), LoginActivity.class);

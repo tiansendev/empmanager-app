@@ -19,6 +19,9 @@ import butterknife.OnClick;
 import empmanager.alochol.empmanager.R;
 import empmanager.alochol.empmanager.base.BaseActivity;
 
+/**
+ * 员工管理界面
+ */
 public class ManagerEmployeeActivity extends BaseActivity {
     @BindView(R.id.imgTitleLeft)
     ImageView imgTitleLeft;

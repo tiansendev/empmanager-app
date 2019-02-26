@@ -40,6 +40,9 @@ import okhttp3.MediaType;
 
 import static android.content.ContentValues.TAG;
 
+/**
+ * 登录页面
+ */
 public class LoginActivity extends BaseActivity {
 
     public Context context = this;

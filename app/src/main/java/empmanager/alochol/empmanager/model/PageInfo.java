@@ -1,9 +1,11 @@
 package empmanager.alochol.empmanager.model;
 
-import com.google.gson.annotations.Expose;
-
 import java.util.List;
 
+/**
+ * 分页信息封装
+ * @param <T>
+ */
 public class PageInfo<T> {
     private List<T> list;
     private int total;

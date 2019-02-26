@@ -27,6 +27,9 @@ import okhttp3.ResponseBody;
 import okio.Buffer;
 import okio.BufferedSource;
 
+/**
+ * 日志拦截器
+ */
 public class LoggingInterceptor implements Interceptor{
     private static final Charset UTF8 = Charset.forName("UTF-8");
 
@@ -72,15 +75,15 @@ public class LoggingInterceptor implements Interceptor{
 
             if (contentLength != 0) {
                 String result = buffer.clone().readString(charset);
-                Log.e("---result---" , result);
-
-//                Logger.e("URL   : " + request.url()
-//                                + "\nMETHOD: " + request.method()
-//                                + "\nPARAM : " + (request.body() != null ? _parseParams(request.body(), requestBuffer) : "")
-//                                + "\nRESULT: \n" + result
-//                                +"\n\n");
+//                Log.e("---result---" , result);
+                Logger.e("URL   : " + request.url()
+                                + "\nMETHOD: " + request.method()
+                                + "\nPARAM : " + (request.body() != null ? _parseParams(request.body(), requestBuffer) : "")
+                                + "\nRESULT: \n" + result
+                                +"\n\n");
 
                 try {
+                    // 如果token过期，则跳到登录界面
                     JSONObject jsonObject = new JSONObject(result);
                     String code = jsonObject.getString("code");
                     if (ServiceResultCode.TOKEN_EXPIRE.getCode().equals(code)) {

@@ -30,6 +30,9 @@ import empmanager.alochol.empmanager.util.Tools;
 import empmanager.alochol.empmanager.wedgit.XListView;
 import okhttp3.Call;
 
+/**
+ * 员工列表页面
+ */
 public class ListEmpActivity extends BasePageListActivity<Employee> {
     public static final String NAME = "NAME";
     public static final String MIN_AGE = "MIN_AGE";

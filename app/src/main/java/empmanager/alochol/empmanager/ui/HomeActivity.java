@@ -13,6 +13,9 @@ import empmanager.alochol.empmanager.base.BaseActivity;
 import empmanager.alochol.empmanager.base.BaseAppliction;
 import empmanager.alochol.empmanager.common.constant.Constants;
 
+/**
+ * 首页
+ */
 public class HomeActivity extends BaseActivity {
 
     @BindView(R.id.tv_name)

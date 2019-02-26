@@ -12,12 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 /**
- * Created by 方毅超
- * Date: 2017/6/29.
- * Desc: com.csair.oatree.common
- *
- * @author jiangminyan
- * @date 2016年10月17日
+ * GSON工具类
  */
 public class GsonUtil {
 
@@ -146,9 +141,7 @@ public class GsonUtil {
 
             public Type[] getActualTypeArguments() {
                 return args;
-
             }
-
             public Type getOwnerType() {
                 return null;
             }

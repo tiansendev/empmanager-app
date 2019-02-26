@@ -13,6 +13,9 @@ import empmanager.alochol.empmanager.R;
 import empmanager.alochol.empmanager.base.BaseActivity;
 import empmanager.alochol.empmanager.base.BaseAppliction;
 
+/**
+ * 设置界面
+ */
 public class SettingActivity extends BaseActivity {
     @BindView(R.id.imgTitleLeft)
     ImageView imgTitleLeft;
@@ -32,6 +35,7 @@ public class SettingActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.update_indo:
+                // 更新用户信息
                 String id = BaseAppliction.sUser.getId();
                 Intent intent = new Intent();
                 intent.putExtra(UserEditActivity.MANANGER_ID, id);

@@ -32,8 +32,10 @@ import empmanager.alochol.empmanager.util.Tools;
 import okhttp3.Call;
 import okhttp3.MediaType;
 
+/**
+ * 添加用户
+ */
 public class AddUserActivity extends BaseActivity {
-
 
     @BindView(R.id.imgTitleLeft)
     ImageView imgTitleLeft;

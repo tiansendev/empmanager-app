@@ -9,6 +9,9 @@ import android.view.View;
 import butterknife.ButterKnife;
 import me.drakeet.materialdialog.MaterialDialog;
 
+/**
+ * Activity 基类，抽出共用方法
+ */
 public abstract class BaseActivity extends AppCompatActivity {
 
     private ProgressDialog mPd;
@@ -40,6 +43,10 @@ public abstract class BaseActivity extends AppCompatActivity {
             mPd.dismiss();
     }
 
+    /**
+     * 显示进度条 自定义信息
+     * @param msg
+     */
     protected void showLoading(String msg) {
         if (mPd == null) {
             mPd = new ProgressDialog(this);
@@ -51,7 +58,11 @@ public abstract class BaseActivity extends AppCompatActivity {
             mPd.show();
         }
     }
-    protected void showLoading() {
+
+    /**
+     * 显示进度条 默认信息
+     */
+    public void showLoading() {
         if (mPd == null) {
             mPd = new ProgressDialog(this);
             mPd.setMessage("正在加载...");
@@ -63,12 +74,21 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * 对话框点击事件
+     */
     public abstract static class OnClickEvent {
         public abstract void onPositive(View v);
         public void onNegative(){}
     }
 
 
+    /**
+     * 显示对话框
+     * @param title
+     * @param msg
+     * @param event
+     */
     public void showDialog(String title, String msg, final OnClickEvent event) {
         final MaterialDialog materialDialog = new MaterialDialog(this);
 
@@ -91,6 +111,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         materialDialog.show();
     }
 
+    /**
+     * 显示对话框 自定义布局
+     * @param title
+     * @param v
+     * @param event
+     */
     protected void showDialog(String title, View v, final OnClickEvent event) {
         final MaterialDialog materialDialog = new MaterialDialog(this);
 

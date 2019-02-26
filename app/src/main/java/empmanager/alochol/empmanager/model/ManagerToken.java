@@ -1,6 +1,8 @@
 package empmanager.alochol.empmanager.model;
 
-
+/**
+ * 登录成功返回的信息
+ */
 public class ManagerToken {
     private Manager manager;
     private String token;

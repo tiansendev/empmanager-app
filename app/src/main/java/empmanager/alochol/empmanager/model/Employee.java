@@ -3,6 +3,9 @@ package empmanager.alochol.empmanager.model;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 员工
+ */
 public class Employee implements Serializable {
     private String id;
 

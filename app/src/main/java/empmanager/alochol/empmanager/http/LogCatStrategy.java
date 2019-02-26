@@ -4,6 +4,9 @@ import android.util.Log;
 
 import com.orhanobut.logger.LogStrategy;
 
+/**
+ * Logger输出策略
+ */
 public class LogCatStrategy implements LogStrategy {
 
   @Override

@@ -16,6 +16,10 @@ import empmanager.alochol.empmanager.model.ServiceResultCode;
 import empmanager.alochol.empmanager.util.Tools;
 import empmanager.alochol.empmanager.wedgit.XListView;
 
+/**
+ * 分页功能封装
+ * @param <T>
+ */
 public abstract class BasePageListActivity<T> extends BaseActivity implements XListView.IXListViewListener, AbsListView.OnScrollListener {
     protected int page;
     protected List<T> list;
@@ -36,6 +40,11 @@ public abstract class BasePageListActivity<T> extends BaseActivity implements XL
         loadByPage(++page);
     }
 
+    /**
+     * listview状态改变时触发
+     * @param absListView
+     * @param i
+     */
     @Override
     public void onScrollStateChanged(AbsListView absListView, int i) {
         switch (i) {
@@ -50,6 +59,11 @@ public abstract class BasePageListActivity<T> extends BaseActivity implements XL
     @Override
     public void onScroll(AbsListView absListView, int i, int i1, int i2) {}
 
+    /**
+     * 判断listview是否到达底部
+     * @param listView
+     * @return
+     */
     public boolean isListViewReachBottomEdge(final AbsListView listView) {
         boolean result = false;
         if (listView.getLastVisiblePosition() == (listView.getCount() - 1)) {
@@ -59,24 +73,42 @@ public abstract class BasePageListActivity<T> extends BaseActivity implements XL
         return result;
     }
 
+    /**
+     * 上拉加载
+     */
     @Override
     public void onLoadMore() {
         loadByPage(page);
     }
 
+    /**
+     * 下拉刷新
+     */
     @Override
     public void onRefresh() {
         page = 1;
         loadByPage(page);
     }
 
+    /**
+     * 加载完毕
+     */
     private void onLoadComplete() {
         getListView().stopRefresh();//停止刷新
         getListView().stopLoadMore();//停止加载更多
     }
 
+    /**
+     * 获取数据
+     * @param page 当前页数
+     */
     protected abstract void loadByPage(int page);
 
+    /**
+     * 处理响应结果
+     * @param context
+     * @param serviceResult
+     */
     protected void processPageResp(Context context, ServiceResult<PageInfo<T>> serviceResult) {
         if (getListView() == null)
             return;
