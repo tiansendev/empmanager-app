@@ -66,7 +66,7 @@ public class ManagerUserActivity extends BaseActivity {
                 } else if (rbFamale.isChecked()) {
                     gender = 1;
                 }
-                intent.putExtra(ListUserActivity.GENDER, gender);
+                intent.putExtra(ListUserActivity.GENDER, String.valueOf(gender));
                 startActivity(intent);
                 break;
             case R.id.imgTitleLeft:

@@ -38,7 +38,7 @@ public class SettingActivity extends BaseActivity {
             case R.id.update_indo:
                 // 更新用户信息
                 String id = BaseAppliction.sUser.getId();
-                Intent intent = new Intent();
+                Intent intent = new Intent(this, UserEditActivity.class);
                 intent.putExtra(UserEditActivity.MANANGER_ID, id);
                 startActivity(intent);
                 break;

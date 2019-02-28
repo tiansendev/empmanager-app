@@ -86,8 +86,6 @@ public class ListEmpActivity extends BasePageListActivity<Employee> {
         mMaxAge = intent.getStringExtra(MAX_AGE);
         mGender = intent.getStringExtra(GENDER);
         super.initData(savedInstanceState);
-
-//        obtainUserList(mName, mMinAge, mMaxAge, mGender);
     }
 
     @Override
@@ -99,12 +97,12 @@ public class ListEmpActivity extends BasePageListActivity<Employee> {
         Map<String, String> map = new HashMap<>();
         if (name != null && !TextUtils.isEmpty(name.trim()))
             map.put("mgrName", name);
-        if (minAge != null)
-            map.put("ageStart", String.valueOf(minAge));
-        if (maxAge != null)
-            map.put("ageEnd", String.valueOf(maxAge));
-        if (gender != null)
-            map.put("gender", String.valueOf(gender));
+        if (minAge != null && !TextUtils.isEmpty(minAge.trim()))
+            map.put("ageStart", minAge);
+        if (maxAge != null && !TextUtils.isEmpty(maxAge.trim()))
+            map.put("ageEnd", maxAge);
+        if (gender != null && !TextUtils.isEmpty(gender.trim()))
+            map.put("gender", gender);
 
         OkHttpUtils
                 .get()

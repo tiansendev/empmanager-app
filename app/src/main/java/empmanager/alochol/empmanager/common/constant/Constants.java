@@ -25,7 +25,8 @@ public class Constants {
         sIp = sp.getIp();
         sPort = sp.getPort();
         if (TextUtils.isEmpty(sIp) || TextUtils.isEmpty(sPort)) {
-            BASE_URL = "http://172.16.63.40:8090";
+//            BASE_URL = "http://172.16.63.40:8195";
+            BASE_URL = "http://www.esimtek.cn:8195";
         } else {
             BASE_URL = "http://" + sIp + ":" + sPort;
         }

@@ -159,7 +159,6 @@ public class LoginActivity extends BaseActivity {
                         e.printStackTrace();
                         hideLoading();
                         Tools.showInfoShort(LoginActivity.this, "登录失败: " + e.getMessage());
-                        context.startActivity(new Intent(context, HomeActivity.class));
                     }
 
                     @Override

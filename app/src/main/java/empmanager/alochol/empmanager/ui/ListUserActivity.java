@@ -99,11 +99,11 @@ public class ListUserActivity extends BasePageListActivity<Manager> {
         Map<String, String> map = new HashMap<>();
         if (name != null && !TextUtils.isEmpty(name.trim()))
             map.put("mgrName", name);
-        if (minAge != null)
+        if (minAge != null && !TextUtils.isEmpty(minAge.trim()))
             map.put("ageStart", minAge);
-        if (maxAge != null)
+        if (maxAge != null && !TextUtils.isEmpty(maxAge.trim()))
             map.put("ageEnd", maxAge);
-        if (gender != null)
+        if (gender != null && !TextUtils.isEmpty(gender.trim()))
             map.put("gender", gender);
 
         OkHttpUtils
